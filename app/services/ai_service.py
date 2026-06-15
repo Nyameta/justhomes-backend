@@ -2,7 +2,10 @@ from groq import Groq
 from app.core.config import settings
 from app.services.property_service import search_properties, format_properties_for_ai, extract_search_params
 
-client = Groq(api_key=settings.GROQ_API_KEY)
+client = Groq(
+    api_key=settings.GROQ_API_KEY,
+    base_url="https://api.groq.com/openai/v1"
+)
 
 SYSTEM_PROMPT = """You are Nyumba, an AI-powered real estate assistant for JustHomes — a premium Kenyan real estate platform.
 
